@@ -81,3 +81,57 @@
 # INSTALL
 
 ## List
+
+This guide explains how to set up, build, and run the project on your local machine.
+
+---
+
+## 1. How to Compile and Run
+
+### 1.1 Compilation
+
+Since the project uses multiple source files, compile using:
+
+```bash
+gcc -o student_manager main.c list.c
+```
+
+### 1.2 Execution
+Run the program with:
+```bash
+./student_manager
+```
+
+---
+
+## 2. Functionality Overview
+| Function        | Description                                                        |
+|----------------|--------------------------------------------------------------------|
+| initList        | Initializes the list by setting head and tail pointers to NULL     |
+| insertStudent   | Inserts a new student in sorted order based on AM                  |
+| deleteStudent   | Removes a student by ID and reconnects neighboring nodes           |
+| searchByAM      | Searches for a student using their ID                              |
+| modifyStudent   | Updates student data and reorders the list if AM changes           |
+| printBySemester | Displays students belonging to a specific semester                 |
+
+---
+
+## 3. Important Note on deleteStudent
+The provided implementation contains a logic bug in pointer reassignment.
+
+### 3.1 Incorrect Code
+```c
+// Current code
+if (n->prev) n->prev = n->next;
+if (n->next) n->next = n->prev;
+```
+
+This incorrectly modifies the node pointers instead of updating the neighboring nodes.
+
+### 3.2 Correct Implementation
+```c
+if (n->prev) n->prev->next = n->next;
+if (n->next) n->next->prev = n->prev;
+```
+
+This properly reconnects the surrounding nodes and prevents breaking the linked list chain.

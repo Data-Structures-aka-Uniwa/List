@@ -81,3 +81,84 @@
 # README
 
 ## List
+
+This code implements a **Doubly Linked List** in C to manage a student database. It supports sorted insertion by Student ID (AM), searching, modification, and deletion.
+
+---
+
+## Table of Contents
+
+| Section | Folder/File | Description |
+|------:|-------------|-------------|
+| 1 | `INSTALL.md` | Installation and compilation instructions |
+| 2 | `README.md` | Project overview and usage guide |
+| 3 | `assign/` | Assignment description images |
+| 3.1 | `assign/List.png` | Linked list assignment image (English) |
+| 3.2 | `assign/Λίστες.png` | Linked list assignment image (Greek) |
+| 4 | `src/` | Source code of the linked list implementation |
+| 4.1 | `src/main.c` | Program entry point and example usage of the list |
+| 4.2 | `src/list.h` | Linked list structure definitions and function prototypes |
+| 4.3 | `src/list.c` | Implementation of linked list operations |
+
+---
+
+## 1. Features
+
+### 1.1 Sorted Insertion
+New students are inserted automatically in **ascending order based on AM (Student ID)**.
+
+### 1.2 Doubly Linked Structure
+Each node contains:
+
+- `next` pointer → points to the next node  
+- `prev` pointer → points to the previous node  
+
+This allows efficient **forward and backward traversal** and simplifies deletion.
+
+### 1.3 Search Capabilities
+
+Students can be searched by:
+
+- **Student ID (AM)** — unique identifier
+- **Name**
+
+### 1.4 Data Integrity
+
+The system prevents **duplicate AM values**, ensuring each student ID is unique.
+
+### 1.5 Memory Management
+
+A `destroyList` function releases all allocated memory to **prevent memory leaks**.
+
+---
+
+## 2. Data Structures
+
+The program is built around three main structures.
+
+### 2.1 `student`
+
+Stores the student data:
+
+- `am` - Student ID  
+- `name` - Student name  
+- `semester` - Current semester  
+
+### 2.2 `node`
+
+Represents a node in the doubly linked list.
+
+Each node contains:
+
+- A `student` record
+- Pointer to the **next node**
+- Pointer to the **previous node**
+
+### 2.3 `list`
+
+A wrapper structure that stores:
+
+- `head` pointer - first element of the list  
+- `tail` pointer - last element of the list  
+
+This simplifies access to both ends of the list.
