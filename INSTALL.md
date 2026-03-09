@@ -88,7 +88,16 @@ This guide explains how to set up, build, and run the project on your local mach
 
 ## 1. How to Compile and Run
 
-### 1.1 Compilation
+### 1.1 Clone the Repository
+
+Open your terminal or command prompt and run:
+
+```bash
+git clone https://github.com/Data-Structures-aka-Uniwa/List.git
+cd List/src
+```
+
+### 1.2 Compilation
 
 Since the project uses multiple source files, compile using:
 
@@ -96,7 +105,7 @@ Since the project uses multiple source files, compile using:
 gcc -o student_manager main.c list.c
 ```
 
-### 1.2 Execution
+### 1.3 Execution
 Run the program with:
 ```bash
 ./student_manager
